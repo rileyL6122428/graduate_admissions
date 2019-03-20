@@ -16,20 +16,104 @@ drawings = [
     #     'attr_bounds': (0, 340),
     #     'label_bounds': (0, 1)
     # },
-    {
-        'attr_name': 'TOEFL_SCORE',
-        'label_name': 'CHANCE_OF_ADMIT',
-        'alpha': 0.25,
-        'attr_bounds': None,
-        'label_bounds': None
-    },
-    {
-        'attr_name': 'TOEFL_SCORE',
-        'label_name': 'CHANCE_OF_ADMIT',
-        'alpha': 0.15,
-        'attr_bounds': (0, 120),
-        'label_bounds': (0, 1)
-    },
+    # {
+    #     'attr_name': 'TOEFL_SCORE',
+    #     'label_name': 'CHANCE_OF_ADMIT',
+    #     'alpha': 0.25,
+    #     'attr_bounds': None,
+    #     'label_bounds': None
+    # },
+    # {
+    #     'attr_name': 'TOEFL_SCORE',
+    #     'label_name': 'CHANCE_OF_ADMIT',
+    #     'alpha': 0.15,
+    #     'attr_bounds': (0, 120),
+    #     'label_bounds': (0, 1)
+    # },
+    # {
+    #     'attr_name': 'UNIVERSITY_RATING',
+    #     'label_name': 'CHANCE_OF_ADMIT',
+    #     'alpha': 0.10,
+    #     'attr_bounds': None,
+    #     'label_bounds': None
+    # },
+    # {
+    #     'attr_name': 'UNIVERSITY_RATING',
+    #     'label_name': 'CHANCE_OF_ADMIT',
+    #     'alpha': 0.15,
+    #     'attr_bounds': (0, 5),
+    #     'label_bounds': (0, 1)
+    # },
+    # {
+    #     'attr_name': 'SOP',
+    #     'label_name': 'CHANCE_OF_ADMIT',
+    #     'alpha': 0.15,
+    #     'attr_bounds': None,
+    #     'label_bounds': None
+    # },
+    # {
+    #     'attr_name': 'SOP',
+    #     'label_name': 'CHANCE_OF_ADMIT',
+    #     'alpha': 0.10,
+    #     'attr_bounds': (0, 5),
+    #     'label_bounds': (0, 1)
+    # },
+    # {
+    #     'attr_name': 'LOR',
+    #     'label_name': 'CHANCE_OF_ADMIT',
+    #     'alpha': 0.15,
+    #     'attr_bounds': None,
+    #     'label_bounds': None
+    # },
+    # {
+    #     'attr_name': 'LOR',
+    #     'label_name': 'CHANCE_OF_ADMIT',
+    #     'alpha': 0.10,
+    #     'attr_bounds': (0, 5),
+    #     'label_bounds': (0, 1)
+    # },
+    # {
+    #     'attr_name': 'CGPA',
+    #     'label_name': 'CHANCE_OF_ADMIT',
+    #     'alpha': 0.15,
+    #     'attr_bounds': None,
+    #     'label_bounds': None
+    # },
+    # {
+    #     'attr_name': 'CGPA',
+    #     'label_name': 'CHANCE_OF_ADMIT',
+    #     'alpha': 0.10,
+    #     'attr_bounds': (0, 10),
+    #     'label_bounds': (0, 1)
+    # },
+    # {
+    #     'attr_name': 'RESEARCH',
+    #     'label_name': 'CHANCE_OF_ADMIT',
+    #     'alpha': 0.05,
+    #     'attr_bounds': None,
+    #     'label_bounds': None
+    # },
+    # {
+    #     'attr_name': 'RESEARCH',
+    #     'label_name': 'CHANCE_OF_ADMIT',
+    #     'alpha': 0.10,
+    #     'attr_bounds': (-0.1, 1.1),
+    #     'label_bounds': (0, 1)
+    # },
+    # {
+    #     'attr_name': 'WEIGHTED_RESEARCH',
+    #     'label_name': 'CHANCE_OF_ADMIT',
+    #     'alpha': 0.10,
+    #     'attr_bounds': None,
+    #     'label_bounds': None
+    # },
+    # {
+    #     'attr_name': 'WEIGHTED_RESEARCH',
+    #     'label_name': 'CHANCE_OF_ADMIT',
+    #     'alpha': 0.10,
+    #     'attr_bounds': (-0.1, 1.1),
+    #     'label_bounds': (0, 10)
+    # },
 ]
 
 for drawing in drawings:

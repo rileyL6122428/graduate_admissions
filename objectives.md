@@ -1,7 +1,8 @@
 Kaggle data set link
 https://www.kaggle.com/mohansacharya/graduate-admissions
 
-- [ ] visualize attributes
+- [x] visualize attributes
+- [ ] investigate derived attributes
 - [ ] extract model features
 - [ ] select classifiers
 - [ ] implement classifiers

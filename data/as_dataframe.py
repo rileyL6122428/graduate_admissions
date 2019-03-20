@@ -12,4 +12,5 @@ formatted_cols = [
 
 admission_frame.columns = formatted_cols
 
-print(admission_frame.head(10))
+# print(admission_frame.head(10))
+# print(admission_frame.columns)
