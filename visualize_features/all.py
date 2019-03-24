@@ -104,16 +104,24 @@ drawings = [
     #     'attr_name': 'WEIGHTED_RESEARCH',
     #     'label_name': 'CHANCE_OF_ADMIT',
     #     'alpha': 0.10,
-    #     'attr_bounds': None,
-    #     'label_bounds': None
-    # },
-    # {
-    #     'attr_name': 'WEIGHTED_RESEARCH',
-    #     'label_name': 'CHANCE_OF_ADMIT',
-    #     'alpha': 0.10,
     #     'attr_bounds': (-0.1, 1.1),
     #     'label_bounds': (0, 10)
     # },
+
+    {
+        'attr_name': 'REPUTATION',
+        'label_name': 'CHANCE_OF_ADMIT',
+        'alpha': 0.15,
+        'attr_bounds': None,
+        'label_bounds': None
+    },
+    {
+        'attr_name': 'REPUTATION',
+        'label_name': 'CHANCE_OF_ADMIT',
+        'alpha': 0.15,
+        'attr_bounds': (-0.1, 1.1),
+        'label_bounds': (-0.1, 1.1)
+    },
 ]
 
 for drawing in drawings:
