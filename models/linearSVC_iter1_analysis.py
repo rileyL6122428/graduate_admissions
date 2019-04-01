@@ -16,10 +16,9 @@ print(classifier.best_estimator_.named_steps['linear_svr'].coef_)
 # RESEARCH -> 0.03
 # REPUTATION -> 0.12
 
-# WORST PREDICTIONS
 train_predictions = classifier.predict(X_train)
-
 errors, abs_errors = regression_errors(train_predictions, y_train)
+
 training_copy = normalize(X_train)
 training_copy['CHANCE_OF_ADMIT'] = y_train
 training_copy['PREDICTION_ERRORS'] = errors
