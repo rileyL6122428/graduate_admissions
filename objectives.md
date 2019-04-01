@@ -15,9 +15,10 @@ https://www.kaggle.com/mohansacharya/graduate-admissions
     * CGPA -> Strong linear correlation *WILL USE*
 
     * RESEARCH -> mediuam correlation *WILL USE*
-- [ ] select classifiers
+- [x] select classifiers
     1. Linear SVC Regressor
-    2. KNearest Neighbors
+    2. KNearest Neighbors Regressor
     3. Forest Regressor
 - [ ] implement classifiers
+- [ ] get a classifier with 0.85 accuracy
 - [ ] submit solution

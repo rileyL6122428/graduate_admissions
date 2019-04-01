@@ -1,5 +1,6 @@
 from data.as_dataframe import X_test, X_train, y_test, y_train
-
+from transformers.normalize import normalize
+from metrics.regression_errors import regression_errors
 from models.linearSVC_iter1 import classifier
 print(classifier.best_estimator_.named_steps['linear_svr'].coef_)
 # GRE_SCORE -> 0.72
@@ -18,15 +19,11 @@ print(classifier.best_estimator_.named_steps['linear_svr'].coef_)
 # WORST PREDICTIONS
 train_predictions = classifier.predict(X_train)
 
-prediction_errors = list(train_predictions - y_train)
-absolute_predictions_errors = list(map(abs, prediction_errors))
-training_copy = X_train.copy()
-training_copy['GRE_SCORE'] = training_copy['GRE_SCORE'] / 340
-training_copy['TOEFL_SCORE'] = training_copy['TOEFL_SCORE'] / 120
-training_copy['CGPA'] = training_copy['CGPA'] / 10
+errors, abs_errors = regression_errors(train_predictions, y_train)
+training_copy = normalize(X_train)
 training_copy['CHANCE_OF_ADMIT'] = y_train
-training_copy['PREDICTION_ERRORS'] = prediction_errors
-training_copy['ABS_PREDICTION_ERRORS'] = absolute_predictions_errors
+training_copy['PREDICTION_ERRORS'] = errors
+training_copy['ABS_PREDICTION_ERRORS'] = abs_errors
 
 print('20 LARGEST ABS_PREDICTION_ERRORS')
 print(training_copy.nlargest(20, 'ABS_PREDICTION_ERRORS'))

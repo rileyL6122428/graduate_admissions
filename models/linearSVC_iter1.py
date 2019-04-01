@@ -3,7 +3,6 @@ from sklearn.pipeline import Pipeline
 from sklearn.svm import LinearSVR
 from sklearn.metrics import r2_score
 from data.as_dataframe import X_test, X_train, y_test, y_train
-from pandas import DataFrame, Series
 from models.range_scalar import RangeScalar
 
 classifier = GridSearchCV(
