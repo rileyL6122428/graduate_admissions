@@ -3,23 +3,8 @@ from sklearn.pipeline import Pipeline
 from sklearn.svm import LinearSVR
 from sklearn.metrics import r2_score
 from data.as_dataframe import X_test, X_train, y_test, y_train
-
-class RangeScalar:
-    def __init__(self, selections):
-        self.selections = selections
-
-    def fit(self, X, y=None):
-        return self
-
-    def transform(self, X):
-        X_copy = X.copy()
-        for selection in self.selections:
-            feature = X_copy[selection['feature_name']]
-            feature_min, feature_max = selection['feature_range']
-            transformed = (feature - feature_min) / (feature_max - feature_min)
-            X_copy[selection['feature_name']] = transformed
-        return X_copy
-
+from pandas import DataFrame, Series
+from models.range_scalar import RangeScalar
 
 classifier = GridSearchCV(
     estimator=Pipeline([
@@ -42,7 +27,7 @@ classifier = GridSearchCV(
     param_grid=[
         {
             'linear_svr__epsilon': [ 0 ],
-            'linear_svr__C': [ 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ],
+            'linear_svr__C': [ 11, 12, 13, 14, 15, 16, 17, 18, 19 ],
             'linear_svr__fit_intercept': [ True ],
             'linear_svr__max_iter': [1000, 10000, 15000],
             'linear_svr__random_state': [42],
@@ -53,8 +38,6 @@ classifier = GridSearchCV(
 )
 
 classifier.fit(X_train, y_train)
-
-print(classifier.best_estimator_.named_steps['linear_svr'].coef_)
 
 print('classifier.best_params_', classifier.best_params_)
 # {
