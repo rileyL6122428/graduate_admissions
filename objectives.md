@@ -19,6 +19,8 @@ https://www.kaggle.com/mohansacharya/graduate-admissions
     1. Linear SVC Regressor
     2. KNearest Neighbors Regressor
     3. Forest Regressor
-- [ ] implement classifiers
+- [x] implement classifiers
+
+*refactoring to make attirbutes more easilty selectable*
 - [ ] get a classifier with 0.85 accuracy
 - [ ] submit solution

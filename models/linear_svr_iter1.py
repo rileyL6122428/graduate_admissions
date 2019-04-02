@@ -4,6 +4,15 @@ from sklearn.svm import LinearSVR
 from sklearn.metrics import r2_score
 from data.as_dataframe import X_test, X_train, y_test, y_train
 from models.range_scalar import RangeScalar
+from transformers.attribute_derivation import AttributeDerivation
+from transformers.attribute_picker import AttributePicker
+
+def derive_reputation(admission_frame):
+    return (
+        admission_frame.LOR +
+        admission_frame.UNIVERSITY_RATING +
+        admission_frame.SOP
+    ) / 15
 
 classifier = GridSearchCV(
     estimator=Pipeline([
@@ -21,6 +30,17 @@ classifier = GridSearchCV(
                 'feature_range': (0, 10)
             }
         ])),
+        ('derive_reputation', AttributeDerivation(
+            name='REPUTATION',
+            derivation=derive_reputation
+        )),
+        ('attribute_selection', AttributePicker(keep=[
+            'GRE_SCORE',
+            'TOEFL_SCORE',
+            'CGPA',
+            'RESEARCH',
+            'REPUTATION'
+        ])),
         ('linear_svr', LinearSVR())
     ]),
     param_grid=[
@@ -28,7 +48,7 @@ classifier = GridSearchCV(
             'linear_svr__epsilon': [ 0 ],
             'linear_svr__C': [ 11, 12, 13, 14, 15, 16, 17, 18, 19 ],
             'linear_svr__fit_intercept': [ True ],
-            'linear_svr__max_iter': [1000, 10000, 15000],
+            'linear_svr__max_iter': [1000, 10000, 15000, 20000],
             'linear_svr__random_state': [42],
         }
     ],

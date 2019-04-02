@@ -1,7 +1,7 @@
 from data.as_dataframe import X_test, X_train, y_test, y_train
 from transformers.normalize import normalize
 from metrics.regression_errors import regression_errors
-from models.linearSVC_iter1 import classifier
+from models.linear_svr_iter1 import classifier
 print(classifier.best_estimator_.named_steps['linear_svr'].coef_)
 # GRE_SCORE -> 0.72
 # TOEFL_SCORE -> 0.29
@@ -21,6 +21,7 @@ errors, abs_errors = regression_errors(train_predictions, y_train)
 
 training_copy = normalize(X_train)
 training_copy['CHANCE_OF_ADMIT'] = y_train
+training_copy['PREDICTED_CHANCE'] = train_predictions
 training_copy['PREDICTION_ERRORS'] = errors
 training_copy['ABS_PREDICTION_ERRORS'] = abs_errors
 
@@ -48,8 +49,8 @@ print(training_copy.nlargest(20, 'ABS_PREDICTION_ERRORS'))
 # 327   0.867647     0.841667  0.786         0    0.433333             0.69 - 0.142773               0.142773
 # 359   0.944118     0.891667  0.844         0    0.366667             0.81 - 0.137816               0.137816
 
-print('20 SMALLEST ABS_PREDICTION_ERRORS')
-print(training_copy.nsmallest(20, 'ABS_PREDICTION_ERRORS'))
+# print('20 SMALLEST ABS_PREDICTION_ERRORS')
+# print(training_copy.nsmallest(20, 'ABS_PREDICTION_ERRORS'))
 #     GRE_SCORE  TOEFL_SCORE   CGPA  RESEARCH  REPUTATION  CHANCE_OF_ADMIT  PREDICTION_ERRORS  ABS_PREDICTION_ERRORS
 # 472   0.961765     0.966667  0.948         1    0.833333             0.90      -9.992007e-16           9.992007e-16
 # 365   0.970588     0.950000  0.917         1    0.766667             0.86      -5.673811e-05           5.673811e-05
@@ -96,4 +97,4 @@ print(training_copy.nsmallest(20, 'ABS_PREDICTION_ERRORS'))
 #   ANALYZE DATA WITH COMBINED ATTRS (see if it shouldn't be combined)
 # AFTER ANALYZING MISSING ATTRS
 #   TRY HARMONIC MEAN OF SCORES
-#   DROP RESEARCH EXP
+#   DROP RESEARCH EXP 

@@ -2,7 +2,7 @@ class RangeScalar:
     def __init__(self, selections):
         self.selections = selections
 
-    def fit(self, X, y=None):
+    def fit(self, X, y):
         return self
 
     def transform(self, X):

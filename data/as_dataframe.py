@@ -12,18 +12,26 @@ formatted_cols = [
 
 admission_frame.columns = formatted_cols
 
-admission_frame['REPUTATION'] = (
-    (
-        admission_frame.LOR +
-        admission_frame.UNIVERSITY_RATING +
-        admission_frame.SOP
-    ) / 15
-)
+# admission_frame['REPUTATION'] = (
+#     (
+#         admission_frame.LOR +
+#         admission_frame.UNIVERSITY_RATING +
+#         admission_frame.SOP
+#     ) / 15
+# )
 
 # print(admission_frame.head(10))
 # print(admission_frame.columns)
 
-X = admission_frame[['GRE_SCORE', 'TOEFL_SCORE', 'CGPA', 'RESEARCH', 'REPUTATION']]
+X = admission_frame[[
+    'GRE_SCORE',
+    'TOEFL_SCORE',
+    'CGPA',
+    'RESEARCH',
+    'LOR',
+    'UNIVERSITY_RATING',
+    'SOP',
+]]
 y = admission_frame.CHANCE_OF_ADMIT
 
 X_train, X_test, y_train, y_test = train_test_split(
