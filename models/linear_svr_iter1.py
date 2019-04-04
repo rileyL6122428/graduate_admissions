@@ -24,10 +24,9 @@ classifier = GridSearchCV(
                 'feature_range': (0, 10)
             }
         ])),
-        ('derive_reputation', AttributeDerivation(
-            name='REPUTATION',
-            derivation=derive_reputation
-        )),
+        ('derive_reputation', AttributeDerivation([
+            ('REPUTATION', derive_reputation)
+        ])),
         ('attribute_selection', AttributePicker(keep=[
             'GRE_SCORE',
             'TOEFL_SCORE',

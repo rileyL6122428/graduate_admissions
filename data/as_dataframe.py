@@ -12,14 +12,6 @@ formatted_cols = [
 
 admission_frame.columns = formatted_cols
 
-# admission_frame['REPUTATION'] = (
-#     (
-#         admission_frame.LOR +
-#         admission_frame.UNIVERSITY_RATING +
-#         admission_frame.SOP
-#     ) / 15
-# )
-
 # print(admission_frame.head(10))
 # print(admission_frame.columns)
 

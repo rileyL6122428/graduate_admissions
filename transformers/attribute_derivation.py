@@ -1,14 +1,17 @@
 class AttributeDerivation:
 
-    def __init__(self, name, derivation):
-        self.name = name
-        self.derivation = derivation
+    def __init__(self, derivations=None):
+        self.derivations = derivations
 
     def transform(self, X):
-        derived = self.derivation(X)
         copied = X.copy()
-        copied[self.name] = derived
+        for name, derivation in self.derivations:
+            derived = derivation(X)
+            copied[name] = derived
         return copied
     
     def fit(self, X, y):
         return self
+
+    def set_params(self, **params):
+        self.derivations = params.get('derivations')
