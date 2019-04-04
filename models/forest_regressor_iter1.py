@@ -4,6 +4,9 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.pipeline import Pipeline
 from models.range_scalar import RangeScalar
 from data.as_dataframe import X_train, y_train, X_test, y_test
+from transformers.attribute_derivation import AttributeDerivation
+from transformers.attribute_picker import AttributePicker
+from transformers.derive_reputation import derive_reputation
 
 classifier = GridSearchCV(
     estimator=Pipeline([
@@ -20,6 +23,17 @@ classifier = GridSearchCV(
                 'feature_name': 'CGPA',
                 'feature_range': (0, 10)
             }
+        ])),
+        ('derive_reputation', AttributeDerivation(
+            name='REPUTATION',
+            derivation=derive_reputation
+        )),
+        ('attribute_selection', AttributePicker(keep=[
+            'GRE_SCORE',
+            'TOEFL_SCORE',
+            'CGPA',
+            'RESEARCH',
+            'REPUTATION'
         ])),
         ('forest_reg', RandomForestRegressor())
     ]),

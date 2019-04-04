@@ -6,13 +6,7 @@ from data.as_dataframe import X_test, X_train, y_test, y_train
 from models.range_scalar import RangeScalar
 from transformers.attribute_derivation import AttributeDerivation
 from transformers.attribute_picker import AttributePicker
-
-def derive_reputation(admission_frame):
-    return (
-        admission_frame.LOR +
-        admission_frame.UNIVERSITY_RATING +
-        admission_frame.SOP
-    ) / 15
+from transformers.derive_reputation import derive_reputation
 
 classifier = GridSearchCV(
     estimator=Pipeline([
